@@ -25,8 +25,7 @@ public class login extends AppCompatActivity {
         } else {
             providers = new ArrayList<>();
             startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder().setAvailableProviders(Arrays.asList(
-                    new AuthUI.IdpConfig.EmailBuilder().build(),
-                    new AuthUI.IdpConfig.GoogleBuilder().build()))
+                    new AuthUI.IdpConfig.EmailBuilder().build()))
             .build(),RC_SIGN_IN);
         }
 

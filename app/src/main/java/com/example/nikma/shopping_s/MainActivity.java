@@ -29,7 +29,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 public class MainActivity extends AppCompatActivity {
-    EditText n,d;
+    EditText n,d,p;
     Button button,logout,choose;
     ImageView imageView;
    private DatabaseReference databaseReference;
@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
     private void init() {
         n = findViewById(R.id.na);
         d= findViewById(R.id.des);
+        p = findViewById(R.id.price);
         imageView = findViewById(R.id.img);
         button = findViewById(R.id.btn);
         logout = findViewById(R.id.logout);
@@ -118,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
                     if (task.isSuccessful()){
                         Uri taskresult = task.getResult();
                         model m = new model(n.getText().toString().trim(),taskresult.toString(),
-                                d.getText().toString().trim());
+                                d.getText().toString().trim(),Integer.parseInt(String.valueOf(p.getText())));
                         String uploadID = databaseReference.push().getKey();
                         databaseReference.child(uploadID).setValue(m);
                     }
